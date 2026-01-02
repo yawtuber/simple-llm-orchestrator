@@ -1,5 +1,5 @@
 {
-	"name": "LangChain Dev",
+	"name": "Simple LLM Orchestrator Dev Container",
 	"dockerComposeFile": "docker-compose.yaml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
