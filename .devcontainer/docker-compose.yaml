@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    env_file:
+      - .env
+    volumes:
+      - ..:/workspace
+    ports:
+      - "8000:8000"
+    command: sleep infinity
