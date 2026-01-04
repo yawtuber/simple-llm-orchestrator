@@ -19,7 +19,9 @@
 	"shutdownAction": "stopCompose",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
-			"username": "vscode"
+			"username": "vscode",
+			"userUid": 1000,
+			"userGid": 1000
 		},
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
@@ -45,5 +47,5 @@
 			}
 		}
 	},
-	"postCreateCommand": "sudo chown -R vscode ~ && uv sync --frozen && uvx pre-commit install"
+	"postCreateCommand": "uv sync --frozen && uvx pre-commit install"
 }
