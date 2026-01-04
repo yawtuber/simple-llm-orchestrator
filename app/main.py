@@ -66,7 +66,7 @@ if __name__ == "__main__":
     }
     logger.info(f"User question: {initial_state['messages'][-1].content}")
     try:
-        final_state = graph.get_graph().invoke(initial_state)  # type: ignore
+        final_state = graph.get_graph().invoke(initial_state)
         logger.info(f"LLM answer: {final_state['messages'][-1].content}")
     except Exception as e:
         logger.error(f"Agent execution failed: {e}", stack_info=True)

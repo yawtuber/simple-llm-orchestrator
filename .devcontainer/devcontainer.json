@@ -29,13 +29,13 @@
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
+				"ms-python.vscode-pylance",
 				"ms-azuretools.vscode-containers",
-				"charliermarsh.ruff",
-				"ms-python.mypy-type-checker"
+				"charliermarsh.ruff"
 			],
 			"settings": {
 				"python.defaultInterpreterPath": "/home/vscode/.venv/bin/python",
-				"mypy-type-checker.importStrategy": "fromEnvironment",
+				"python.languageServer": "Pylance",
 				"[python]": {
 					"editor.formatOnSave": true,
 					"editor.codeActionsOnSave": {

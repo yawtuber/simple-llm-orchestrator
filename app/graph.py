@@ -163,7 +163,7 @@ class Graph:
             "tool_calls": state["tool_calls"],
         }
 
-    def _build_graph(self):  # type: ignore
+    def _build_graph(self):
         """Build the agent graph"""
 
         agent_builder = StateGraph(MessagesState)
@@ -187,13 +187,14 @@ class Graph:
 
         return agent_builder.compile()
 
-    def get_graph(self):  # type: ignore
+    def get_graph(self):
         """Get the compiled agent graph"""
 
         return self._graph
 
     def get_settings(self) -> dict[str, BaseSettings | list[BaseSettings]]:
         """Get current settings"""
+
         return {
             "graph": self._graph_settings,
             "llm": self._llm_settings,

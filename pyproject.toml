@@ -14,14 +14,13 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "mypy>=1.19.1",
     "pre-commit>=4.5.1",
+    "pyright>=1.1.407",
     "pytest>=9.0.2",
     "ruff>=0.14.10",
 ]
 
-[tool.mypy]
-python_version = 3.13
-disallow_untyped_defs = true
-check_untyped_defs = true
-ignore_missing_imports = true
+[tool.pyright]
+include = ["app"]
+typeCheckingMode = "basic"
+reportMissingParameterType = "error"
