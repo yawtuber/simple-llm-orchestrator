@@ -5,18 +5,9 @@ services:
       dockerfile: .devcontainer/Dockerfile
     env_file:
       - ../.env
-    user: 1000:1000
     volumes:
       - ..:/workspace
-      - venv-data:/home/vscode/.venv
-      - cache:/home/vscode/.cache
     working_dir: /workspace
-    entrypoint: >
-      sh -c "sudo chown -R 1000:1000 /workspace /home/vscode/.venv /home/vscode/.cache && python3"
     ports:
       - "8000:8000"
     tty: true
-
-volumes:
-  venv-data:
-  cache:

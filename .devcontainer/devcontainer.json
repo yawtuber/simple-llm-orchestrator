@@ -7,11 +7,7 @@
 	"updateRemoteUserUID": true,
 	"containerEnv": {
 		"UV_LINK_MODE": "copy",
-		"UV_PROJECT_ENVIRONMENT": "/home/vscode/.venv",
-		"UV_CACHE_DIR": "/home/vscode/.cache/uv",
 		"UV_PYTHON_DOWNLOADS": "never",
-		"UV_PYTHON": "Python3",
-		"UV_COMPILE_BYTECODE": "1",
 		"PYTHONUNBUFFERED": "1",
 		"PYTHONUTF8": "1"
 		
@@ -19,9 +15,7 @@
 	"shutdownAction": "stopCompose",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
-			"username": "vscode",
-			"userUid": 1000,
-			"userGid": 1000
+			"username": "vscode"
 		},
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
@@ -32,20 +26,8 @@
 				"ms-python.vscode-pylance",
 				"ms-azuretools.vscode-containers",
 				"charliermarsh.ruff"
-			],
-			"settings": {
-				"python.defaultInterpreterPath": "/home/vscode/.venv/bin/python",
-				"python.languageServer": "Pylance",
-				"[python]": {
-					"editor.formatOnSave": true,
-					"editor.codeActionsOnSave": {
-						"source.fixAll": "explicit",
-						"source.organizeImports": "explicit"
-					},
-					"editor.defaultFormatter": "charliermarsh.ruff"
-				}
-			}
+			]
 		}
 	},
-	"postCreateCommand": "uv sync --frozen && uvx pre-commit install"
+	"postCreateCommand": "uv sync --frozen && git config --global --add safe.directory /workspace && uv run pre-commit install"
 }
