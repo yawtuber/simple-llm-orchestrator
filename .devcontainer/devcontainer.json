@@ -1,10 +1,18 @@
 {
 	"name": "Simple LLM Orchestrator Dev Container",
 	"dockerComposeFile": "docker-compose.yaml",
-	"service": "app",
+	"service": "server",
 	"workspaceFolder": "/workspace",
-	"remoteUser": "vscode",
+	"containerUser": "vscode",
 	"updateRemoteUserUID": true,
+	"containerEnv": {
+		"UV_LINK_MODE": "copy",
+		"UV_PYTHON_DOWNLOADS": "never",
+		"PYTHONUNBUFFERED": "1",
+		"PYTHONUTF8": "1"
+		
+	},
+	"shutdownAction": "stopCompose",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"username": "vscode"
@@ -15,21 +23,11 @@
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
-				"charliermarsh.ruff",
-				"ms-python.mypy-type-checker"
-			],
-			"settings": {
-				"mypy-type-checker.importStrategy": "fromEnvironment",
-				"[python]": {
-					"editor.formatOnSave": true,
-					"editor.codeActionsOnSave": {
-						"source.fixAll": "explicit",
-						"source.organizeImports": "explicit"
-					},
-					"editor.defaultFormatter": "charliermarsh.ruff"
-				}
-			}
+				"ms-python.vscode-pylance",
+				"ms-azuretools.vscode-containers",
+				"charliermarsh.ruff"
+			]
 		}
 	},
-	"shutdownAction": "stopCompose"
+	"postCreateCommand": "uv sync --frozen && git config --global --add safe.directory /workspace && uv run pre-commit install"
 }

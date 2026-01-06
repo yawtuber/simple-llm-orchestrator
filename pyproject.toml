@@ -1,0 +1,26 @@
+[project]
+name = "simple-llm-orchestrator"
+version = "0.1.0"
+requires-python = ">=3.13, <3.14"
+dependencies = [
+    "ddgs>=9.10.0",
+    "langchain>=1.2.0",
+    "langchain-openai>=1.1.6",
+    "langgraph>=1.0.5",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.12.0",
+    "tenacity>=9.1.2",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+    "pyright>=1.1.407",
+    "pytest>=9.0.2",
+    "ruff>=0.14.10",
+]
+
+[tool.pyright]
+include = ["app"]
+typeCheckingMode = "basic"
+reportMissingParameterType = "error"
