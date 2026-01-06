@@ -10,7 +10,6 @@
 		"UV_PYTHON_DOWNLOADS": "never",
 		"PYTHONUNBUFFERED": "1",
 		"PYTHONUTF8": "1"
-		
 	},
 	"shutdownAction": "stopCompose",
 	"features": {
